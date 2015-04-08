@@ -46,10 +46,11 @@ public class BbsController {
 			, BindingResult result, RedirectAttributes redirectAttributes) {
 		
 		if(result.hasErrors()){
-			logger.info("result.hasErrors : {}", result.getFieldErrors());
+			logger.debug("result.hasErrors : {}", result.getFieldErrors());
 			return form(bbs);
 		}else{
 			bbsService.save(bbs);
+			redirectAttributes.addFlashAttribute("message", "등록 되었습니다.");
 		}
 		
 		return "redirect:/bbs/";

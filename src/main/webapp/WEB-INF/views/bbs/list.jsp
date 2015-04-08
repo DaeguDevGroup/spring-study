@@ -22,6 +22,8 @@
     
     <div class="container">
     
+                    <%@ include file="../inc/message_block.jsp" %>
+    
 					<div class="block">
 						<div class="block-title">
                             <div class="block-options pull-right">
