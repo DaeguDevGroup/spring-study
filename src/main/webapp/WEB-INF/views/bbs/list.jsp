@@ -35,7 +35,7 @@
 							</h2>
 						</div>
                         <div class="table-responsive">
-                            <table id="general-table" class="table table-striped table-vcenter text-center">
+                            <table id="general-table" class="table table-striped table-vcenter">
 								<!-- <caption>게시판 목록</caption> -->
                                 <thead>
                                     <tr>
@@ -48,8 +48,8 @@
 								<c:forEach var="item" items="${items}" varStatus="status">
 									<tr>
 										<td class="text-left"><a href="./${item.id}" title="상세보기">${item.subject}</a></td>
-										<td>${item.createDate}</td>
 										<td>${item.writer}</td>
+										<td>${item.createDate}</td>
 									</tr>
 								</c:forEach>
 								<c:if test='${empty items}'>
