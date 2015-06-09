@@ -19,6 +19,13 @@ public class Bbs {
 	
 	private Date createDate;
 	
+	public Bbs() {}
+	
+	public Bbs(String subject, String content, String writer) {
+		this.subject = subject;
+		this.content = content;
+		this.writer = writer;
+	}
 	public Integer getId() {
 		return id;
 	}
