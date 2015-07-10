@@ -1,0 +1,10 @@
+{
+    "bbs": [
+        {
+        	"_id": "1",
+            "subject": "create test",
+            "content": "내용",
+            "writer": "tester",
+        }
+    ]
+}
