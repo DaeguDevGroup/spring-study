@@ -1,0 +1,33 @@
+2015-07-10T02:07:17.480+0900 I CONTROL  [initandlisten] MongoDB starting : pid=3780 port=27017 dbpath=mongo-dbpath 64-bit host=cyanui-MacBook-Pro.local
+2015-07-10T02:07:17.480+0900 I CONTROL  [initandlisten] db version v3.0.4
+2015-07-10T02:07:17.480+0900 I CONTROL  [initandlisten] git version: 0481c958daeb2969800511e7475dc66986fa9ed5
+2015-07-10T02:07:17.480+0900 I CONTROL  [initandlisten] build info: Darwin mci-osx108-11.build.10gen.cc 12.5.0 Darwin Kernel Version 12.5.0: Sun Sep 29 13:33:47 PDT 2013; root:xnu-2050.48.12~1/RELEASE_X86_64 x86_64 BOOST_LIB_VERSION=1_49
+2015-07-10T02:07:17.480+0900 I CONTROL  [initandlisten] allocator: system
+2015-07-10T02:07:17.480+0900 I CONTROL  [initandlisten] options: { net: { port: 27017 }, storage: { dbPath: "mongo-dbpath", journal: { enabled: false } }, systemLog: { destination: "file", path: "logpath" } }
+2015-07-10T02:07:17.481+0900 I INDEX    [initandlisten] allocating new ns file mongo-dbpath/local.ns, filling with zeroes...
+2015-07-10T02:07:17.507+0900 I STORAGE  [FileAllocator] allocating new datafile mongo-dbpath/local.0, filling with zeroes...
+2015-07-10T02:07:17.507+0900 I STORAGE  [FileAllocator] creating directory mongo-dbpath/_tmp
+2015-07-10T02:07:17.584+0900 I STORAGE  [FileAllocator] done allocating datafile mongo-dbpath/local.0, size: 64MB,  took 0.076 secs
+2015-07-10T02:07:17.603+0900 I NETWORK  [initandlisten] waiting for connections on port 27017
+2015-07-10T02:07:23.556+0900 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:57939 #1 (1 connection now open)
+2015-07-10T02:07:23.564+0900 I NETWORK  [conn1] end connection 127.0.0.1:57939 (0 connections now open)
+2015-07-10T02:07:24.298+0900 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:57940 #2 (1 connection now open)
+2015-07-10T02:07:24.303+0900 I INDEX    [conn2] allocating new ns file mongo-dbpath/test.ns, filling with zeroes...
+2015-07-10T02:07:24.328+0900 I STORAGE  [FileAllocator] allocating new datafile mongo-dbpath/test.0, filling with zeroes...
+2015-07-10T02:07:24.400+0900 I STORAGE  [FileAllocator] done allocating datafile mongo-dbpath/test.0, size: 64MB,  took 0.072 secs
+2015-07-10T02:07:24.433+0900 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:57941 #3 (2 connections now open)
+2015-07-10T02:07:24.445+0900 I CONTROL  [signalProcessingThread] got signal 15 (Terminated: 15), will terminate after current cmd ends
+2015-07-10T02:07:24.445+0900 I CONTROL  [signalProcessingThread] now exiting
+2015-07-10T02:07:24.445+0900 I NETWORK  [signalProcessingThread] shutdown: going to close listening sockets...
+2015-07-10T02:07:24.445+0900 I NETWORK  [signalProcessingThread] closing listening socket: 6
+2015-07-10T02:07:24.445+0900 I NETWORK  [signalProcessingThread] closing listening socket: 7
+2015-07-10T02:07:24.445+0900 I NETWORK  [signalProcessingThread] removing socket file: /tmp/mongodb-27017.sock
+2015-07-10T02:07:24.445+0900 I NETWORK  [signalProcessingThread] shutdown: going to flush diaglog...
+2015-07-10T02:07:24.445+0900 I NETWORK  [signalProcessingThread] shutdown: going to close sockets...
+2015-07-10T02:07:24.445+0900 I STORAGE  [signalProcessingThread] shutdown: waiting for fs preallocator...
+2015-07-10T02:07:24.445+0900 I STORAGE  [signalProcessingThread] shutdown: closing all files...
+2015-07-10T02:07:24.445+0900 I NETWORK  [conn3] end connection 127.0.0.1:57941 (1 connection now open)
+2015-07-10T02:07:24.445+0900 I NETWORK  [conn2] end connection 127.0.0.1:57940 (1 connection now open)
+2015-07-10T02:07:24.449+0900 I STORAGE  [signalProcessingThread] closeAllFiles() finished
+2015-07-10T02:07:24.449+0900 I STORAGE  [signalProcessingThread] shutdown: removing fs lock...
+2015-07-10T02:07:24.449+0900 I CONTROL  [signalProcessingThread] dbexit:  rc: 0
