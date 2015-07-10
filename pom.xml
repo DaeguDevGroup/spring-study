@@ -8,10 +8,12 @@
 	<packaging>war</packaging>
 	<version>1.0.0-BUILD-SNAPSHOT</version>
 	<properties>
-		<java-version>1.6</java-version>
-		<org.springframework-version>3.2.6.RELEASE</org.springframework-version>
+		<java-version>1.7</java-version>
+		<org.springframework-version>4.1.7.RELEASE</org.springframework-version>
 		<org.aspectj-version>1.8.1</org.aspectj-version>
 		<org.slf4j-version>1.6.1</org.slf4j-version>
+		<version.nosqlunit>0.8.1</version.nosqlunit>
+		<mongodb.java.driver.version>2.13.0</mongodb.java.driver.version>
 	</properties>
 	<dependencies>
 		<!-- Spring -->
@@ -91,12 +93,8 @@
 		</dependency>
 
 		<!-- Servlet -->
-		<dependency>
-			<groupId>javax.servlet</groupId>
-			<artifactId>servlet-api</artifactId>
-			<version>2.5</version>
-			<scope>provided</scope>
-		</dependency>
+		<!-- <dependency> <groupId>javax.servlet</groupId> <artifactId>servlet-api</artifactId> 
+			<version>2.5</version> <scope>provided</scope> </dependency> -->
 		<dependency>
 			<groupId>javax.servlet.jsp</groupId>
 			<artifactId>jsp-api</artifactId>
@@ -146,6 +144,17 @@
 			<version>1.9.5</version>
 			<scope>test</scope>
 		</dependency>
+		<dependency>
+			<groupId>com.lordofthejars</groupId>
+			<artifactId>nosqlunit-mongodb</artifactId>
+			<version>${version.nosqlunit}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.github.fakemongo</groupId>
+			<artifactId>fongo</artifactId>
+			<version>1.6.2</version>
+			<scope>test</scope>
+		</dependency>
 
 		<!-- JSR 303 with Hibernate Validator -->
 		<dependency>
@@ -170,6 +179,26 @@
 			<artifactId>guava</artifactId>
 			<version>18.0</version>
 		</dependency>
+
+		<!-- mongodb -->
+		<dependency>
+			<groupId>org.springframework.data</groupId>
+			<artifactId>spring-data-mongodb</artifactId>
+			<version>1.7.0.RELEASE</version>
+		</dependency>
+		<dependency>
+			<groupId>org.mongodb</groupId>
+			<artifactId>mongo-java-driver</artifactId>
+			<version>${mongodb.java.driver.version}</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<version>1.16.4</version>
+		</dependency>
+
 	</dependencies>
 	<build>
 		<plugins>

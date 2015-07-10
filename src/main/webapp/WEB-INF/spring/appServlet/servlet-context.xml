@@ -25,7 +25,11 @@
 		<beans:property name="basename" value="messages" />
 	</beans:bean>
 	
-	<context:component-scan base-package="kr.dev.study" />
+	<context:component-scan base-package="kr.dev.study">
+		<context:include-filter expression="org.springframework.stereotype.Controller" type="annotation"/>
+		<context:exclude-filter expression="org.springframework.stereotype.Service" type="annotation"/>
+		<context:exclude-filter expression="org.springframework.stereotype.Repository" type="annotation"/>
+	</context:component-scan>
 	
 	
 	

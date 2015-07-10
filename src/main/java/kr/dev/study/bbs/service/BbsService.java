@@ -7,9 +7,9 @@ import kr.dev.study.bbs.exception.BbsNotFoundException;
 
 public interface BbsService {
 
-	List<Bbs> getList();
+	List<Bbs> findAll();
 
-	Bbs findById(Integer id) throws BbsNotFoundException;
+	Bbs findById(String id) throws BbsNotFoundException;
 
 	void create(Bbs bbs);
 

@@ -1,4 +1,4 @@
-package kr.dev.study.bbs;
+package kr.dev.study.bbs.controller;
 
 import javax.annotation.Resource;
 import javax.validation.Valid;
@@ -34,12 +34,12 @@ public class BbsController {
 	@RequestMapping(value = "", method = RequestMethod.GET)
 	public String list(Model model) {
 		
-		model.addAttribute("items", bbsService.getList());
+		model.addAttribute("items", bbsService.findAll());
 		return "bbs/list";
 	}
 	
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
-	public String list(Model model, @PathVariable Integer id) throws BbsNotFoundException {
+	public String list(Model model, @PathVariable String id) throws BbsNotFoundException {
 		
 		logger.debug("Bbs findById : {}", id);
 		

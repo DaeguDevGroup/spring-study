@@ -1,4 +1,4 @@
-package kr.dev.study.bbs;
+package kr.dev.study.bbs.controller;
 
 import static org.hamcrest.CoreMatchers.*;
 import static org.junit.Assert.*;
@@ -10,7 +10,15 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 import static org.springframework.test.web.servlet.setup.MockMvcBuilders.standaloneSetup;
+import static org.hamcrest.Matchers.allOf;
+import static org.hamcrest.Matchers.hasItem;
 import static org.hamcrest.Matchers.hasProperty;
+import static org.hamcrest.Matchers.hasSize;
+import static org.hamcrest.Matchers.is;
+
+import java.util.Arrays;
+
+import kr.dev.study.bbs.controller.BbsController;
 import kr.dev.study.bbs.domain.Bbs;
 import kr.dev.study.bbs.service.BbsService;
 
@@ -23,9 +31,9 @@ import org.mockito.runners.MockitoJUnitRunner;
 import org.springframework.test.web.servlet.MockMvc;
 
 @RunWith(MockitoJUnitRunner.class)
-public class BbsControllerTest {
+public class StandaloneBbsControllerTest {
 	
-    private static final Integer ID = 1;
+    private static final String ID = "1";
 	
 	@Mock
 	private BbsService bbsServiceMock;
@@ -38,7 +46,7 @@ public class BbsControllerTest {
 	@Before
 	public void setup() throws Exception {
 		this.mockMvc = standaloneSetup(bbsController)
-//				.alwaysDo(print())
+				.alwaysDo(print())
 				.build();
 	}
 	
@@ -83,10 +91,44 @@ public class BbsControllerTest {
 		.andExpect(model().attribute("item", notNullValue()))
 		.andExpect(model().attribute("item", hasProperty("id", is(nullValue()))))
 		.andExpect(model().attribute("item", hasProperty("subject", is("create test"))))
+		.andExpect(model().attribute("item", hasProperty("content", is("내용"))))
+		.andExpect(model().attribute("item", hasProperty("writer", is("tester"))))
 		.andExpect(model().size(1));
 		
 		verify(bbsServiceMock, times(1)).findById(ID);
         verifyNoMoreInteractions(bbsServiceMock);
+	}
+	
+	@Test
+	public void findAll() throws Exception {
+		
+		Bbs first = new Bbs("create test", "내용", "tester");
+		Bbs second = new Bbs("create test2", "내용2", "tester");
+
+		when(bbsServiceMock.findAll()).thenReturn(Arrays.asList(first, second));
+		
+		this.mockMvc.perform(
+			get("/bbs")
+		)
+		.andExpect(status().isOk())
+		.andExpect(view().name("bbs/list"))
+        .andExpect(model().attribute("items", hasSize(2)))
+        .andExpect(model().attribute("items", hasItem(
+                allOf(
+                        hasProperty("id", is(nullValue())),
+                        hasProperty("subject", is("create test")),
+                        hasProperty("content", is("내용")),
+                        hasProperty("writer", is("tester"))
+                )
+        )))
+        .andExpect(model().attribute("items", hasItem(
+                allOf(
+                        hasProperty("id", is(nullValue())),
+                        hasProperty("subject", is("create test2")),
+                        hasProperty("content", is("내용2")),
+                        hasProperty("writer", is("tester"))
+                )
+        )));
 	}
 
 }
