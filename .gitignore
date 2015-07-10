@@ -3,4 +3,5 @@
 .classpath
 .project
 */.settings/*
-pom.properties
+*/pom.properties
+/target/
